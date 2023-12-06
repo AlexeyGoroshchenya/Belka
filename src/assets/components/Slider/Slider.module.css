@@ -1,0 +1,58 @@
+.slider{
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: var(--main-light-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.content{
+    width: 100%;
+    overflow-y: auto;
+}
+
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+   height: 70vh;
+   padding: 0 20px;
+   width: 100%;
+   overflow-y: auto;
+}
+
+.title{
+    color: var(--dark-bg-color);
+    font-size: 45px;
+    line-height: 40px;
+    font-style: italic;
+    font-family:'Good Vibes Pro';
+    letter-spacing: 7px;
+
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.button{
+    background-color: var(--dark-bg-color);
+    color: var(--main-light-color);
+    cursor: pointer;
+    transition-duration: var(--hover-duration);
+}
+
+.button:hover{
+    transform: scale(1.1);
+}
+
+
+

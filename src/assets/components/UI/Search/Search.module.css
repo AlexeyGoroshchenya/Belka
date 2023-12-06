@@ -1,0 +1,11 @@
+.body{
+    width: 100%;
+    
+    background-color: var(--half-transparent-wht);
+}
+
+.input{
+    padding: 20px;
+    width: 100%;
+    border: 1px solid gray;
+}

@@ -1,0 +1,100 @@
+.login__form {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body {
+
+    width: 80vw;
+    height: 80vh;
+    background-color: var(--dark-bg-color);
+    border: 2px solid var(--main-light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    color: var(--main-light-color);
+
+}
+
+
+.title {
+    font-size: 45px;
+    line-height: 40px;
+    font-style: italic;
+    font-family: 'Good Vibes Pro';
+    letter-spacing: 7px;
+    width: auto;
+    flex: 0 0 15vh;
+    padding: 50px 20px;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 50px;
+        line-height: 45px;
+        width: 80%;
+    }
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+    min-width: 300px;
+
+
+}
+
+.inputs input {
+    height: 40px;
+    width: 100%;
+    background-color: var(--dark-bg-color);
+    color: var(--main-light-color);
+    border-bottom: 1px solid;
+    position: relative;
+}
+
+.inputs input::placeholder {
+    color: var(--main-light-color);
+}
+
+.button {
+    max-width: 90%;
+    padding: 10px 20px;
+    border: 2px solid var(--main-light-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    transition-duration: var(--hover-duration);
+
+}
+
+@media (min-width: 992px) {
+    .button {
+        padding: 15px 45px;
+    }
+
+    .button:hover {
+        transform: scale(1.1);
+        background-color: var(--half-transparent-bl);
+    }
+
+}
+
+.register{
+    letter-spacing: 1px;
+}
+
+.register span{
+    text-decoration: underline;
+    cursor: pointer;
+    
+}

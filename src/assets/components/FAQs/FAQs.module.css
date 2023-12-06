@@ -1,0 +1,100 @@
+.faqs {
+    width: 100vw;
+      height: auto;
+    
+    background-image: url('/public/images/wallpapers/studio-ghibli-hd-wallpapers-114.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 20px;
+}
+
+@media (min-width: 992px) {
+    .faqs{
+      height: 100vh;
+    }
+}
+
+.body {
+    width: 100vw;
+    height: auto;
+    background-color: var(--half-transparent-bl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    color: var(--main-light-color);
+    padding-bottom: 40px;
+}
+
+@media (min-width: 992px) {
+    .body {
+        height: 100vh; 
+    }
+}
+
+
+.title{
+    font-size: 45px;
+    line-height: 40px;
+    font-style: italic;
+    font-family:'Good Vibes Pro';
+    letter-spacing: 7px;
+    width: auto;
+    flex: 0 0 15vh;
+    padding: 50px 20px;
+}
+
+@media (min-width: 768px) {
+    .title{
+        font-size: 50px;
+    line-height: 45px;
+        width: 80%;
+    }
+}
+
+.questions{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    flex: 1 1 auto;
+}
+
+@media (min-width: 992px) {
+    .questions{
+        flex-wrap: nowrap;
+        max-height: 65vh;
+    }
+}
+
+.question{
+    flex: 0 0 50%;
+    max-width: 100%;
+    text-align: justify;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .question{
+        flex: 0 0 45%;
+    }
+}
+@media (min-width: 992px) {
+    .question{
+        flex: 0 0 30%;
+    }
+}
+
+.text{
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 20px;
+    padding-bottom: 50px;
+}
+
+.question p:first-child{
+    padding-bottom: 20px;
+
+}

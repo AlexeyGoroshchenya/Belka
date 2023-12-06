@@ -1,0 +1,77 @@
+.cover {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/public/images/wallpapers/studio-ghibli-hd-wallpapers-124.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 20px;
+}
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--half-transparent-bl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--main-light-color);
+}
+
+.logo {
+    letter-spacing: 3px;
+    word-spacing: 6px;
+
+}
+
+.slogan {
+
+    font-size: 50px;
+    line-height: 45px;
+    font-style: italic;
+    font-family: 'Good Vibes Pro';
+    letter-spacing: 5px;
+    padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+    .slogan {
+        letter-spacing: 7px;
+        font-size: 60px;
+        line-height: 55px;
+    }
+}
+
+@media (min-width: 992px) {
+    .slogan {
+        width: 50%;
+        letter-spacing: 9px;
+        font-size: 100px;
+        line-height: 115px;
+    }
+}
+
+.button {
+    max-width: 90%;
+    padding: 10px 20px;
+    border: 2px solid var(--main-light-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    transition-duration: var(--hover-duration);
+
+}
+
+@media (min-width: 992px) {
+    .button {
+        padding: 15px 45px;
+    }
+
+    .button:hover {
+        transform: scale(1.1);
+        background-color: var(--half-transparent-bl);
+    }
+
+}
