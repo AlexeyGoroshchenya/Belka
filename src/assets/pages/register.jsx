@@ -1,9 +1,19 @@
 import React from 'react';
+import RegisterForm from '../components/UI/Register/RegisterForm';
+import Header from '../components/UI/Header/Header';
+
+
+
 
 const Register = () => {
+
+
+
+
     return (
-        <div>
-            register
+        <div className="App">
+            <Header/>
+            <RegisterForm />
         </div>
     );
 };

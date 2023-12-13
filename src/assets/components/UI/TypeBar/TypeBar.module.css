@@ -1,0 +1,28 @@
+.body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    height: fit-content;
+    height: -moz-fit-content;
+    padding: 20px;
+}
+
+.item{
+    padding: 5px 15px;
+    background-color: var(--dark-bg-color);
+    color: var(--main-light-color);
+    cursor: pointer;
+    border: 1px solid ;
+    transition-duration: var(--hover-duration);
+}
+
+.item:hover{
+    transform: scale(1.05);
+
+}
+
+.active {
+    background-color: var(--half-transparent-bl)
+}

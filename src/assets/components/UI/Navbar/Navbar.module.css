@@ -4,4 +4,16 @@
     gap: 20px;
     align-items: center;
     justify-content: center;
+    
+}
+
+.button{
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid ;
+    transition-duration: var(--hover-duration);
+}
+
+.button:hover{
+    transform: scale(1.05);
 }

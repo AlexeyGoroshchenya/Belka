@@ -1,19 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import db from '../../assets/data/db.json'
+import React, { useContext, useEffect, useState } from 'react';
+
 import Header from '../components/UI/Header/Header';
 import Search from '../components/UI/Search/Search';
 import Store from '../components/Store/Store';
+import { Context } from '../..';
+import TypeBar from '../components/UI/TypeBar/TypeBar';
+import { observer } from 'mobx-react-lite';
+import { fetchBrands, fetchDevices, fetchTypes } from '../http/deviceApi';
 
-const Gallery = () => {
+const Gallery = observer(() => {
 
-    const [goods, setGoods] = useState([])
-    const [filter, setFilter] = useState('')
+  const {devices} = useContext(Context)
+  
+
+    // const [goods, setGoods] = useState([])
+    
+    // const [filter, setFilter] = useState('')
 
     
   useEffect(() => {
+    fetchTypes().then((data)=>{
+      devices.setTypes(data);
+    })
 
+    fetchBrands().then((data)=>{
+      devices.setBrands(data);
+    })
 
-    setGoods(db)
+    fetchDevices().then((data)=>{
+      devices.setDevices(data.rows);
+      console.log(data);
+    })
+
+    // setGoods(devices.devices)
 
     
 
@@ -22,11 +41,12 @@ const Gallery = () => {
     return (
         <div className="App">
             <Header />
-          <Search filter={filter} setFilter={setFilter} />
+            <TypeBar />
+          {/* <Search filter={filter} setFilter={setFilter} /> */}
         
-          <Store goods={goods} />
+          <Store goods={devices.devices} />
         </div>
-    );
-};
+    )
+})
 
 export default Gallery;

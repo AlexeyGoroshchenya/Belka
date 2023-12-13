@@ -144,7 +144,7 @@ const Home = () => {
   }, [slidesNumber])
 
   return (
-    <div className="App"
+    <div className="App hidden-header"
     // onPointerMove={(e) => console.log(e)}
     // onPointerDown={(e) => console.log(e)}
     // onPointerUp={(e) => console.log('onPointerUp')}

@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './LoginForm.module.css'
 import { useNavigate } from 'react-router-dom';
 import { REGISTER_ROUTE } from '../../../utils/consts';
+import { Context } from '../../../..';
+import { login } from '../../../http/userAPI';
 
 const LoginForm = () => {
 
+    const { user } = useContext(Context)
+
     const router = useNavigate()
 
-    console.log(1);
+    const [phone, setPhone] = useState('')
+    const [password, setPassword] = useState('')
+
+    const startLogin = async () => {
+
+        try {
+
+            const response = await login(phone, password)
+            user.setIsAuth(true)
+            
+            user.setUser(response)
+            
+
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+
+
+
+    }
+
+    
     return (
         <div className={styles.login__form}>
             <div className={styles.body}>
@@ -15,12 +40,35 @@ const LoginForm = () => {
             <div className={styles.title}>
             Авторизация
             </div>
+
+            
             <div className={styles.inputs}>
-            <input type="text" placeholder='Логин' />
-            <input type="password" placeholder='Пароль' />
+                <input type="text"
+                 placeholder='Телефон' 
+                 value={phone}
+                        onChange={(e) => {
+                            setPhone(e.target.value)
+
+                        }}
+                 />
+                <input type="password"
+                 placeholder='Пароль' 
+                 value={password}
+                        onChange={(e) => {
+                            setPassword(e.target.value)
+
+                        }}
+                 />
 
             </div>
-            <div className={styles.button}>
+            
+            <div className={styles.button}
+            
+            onClick={()=> startLogin()}
+            
+            
+             
+            >
             Войти
             </div>
             <div className={styles.register}

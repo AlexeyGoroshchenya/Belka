@@ -3,6 +3,8 @@ import styles from './Store.module.css'
 import Card from '../Card/Card';
 
 const Store = ({goods = []}) => {
+
+  
     return (
         <div className={styles.store}>
                  
