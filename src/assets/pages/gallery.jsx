@@ -7,6 +7,7 @@ import { Context } from '../..';
 import TypeBar from '../components/UI/TypeBar/TypeBar';
 import { observer } from 'mobx-react-lite';
 import { fetchBrands, fetchDevices, fetchTypes } from '../http/deviceApi';
+import Pagination from '../components/UI/Pagination/Pagination';
 
 const Gallery = observer(() => {
 
@@ -27,9 +28,10 @@ const Gallery = observer(() => {
       devices.setBrands(data);
     })
 
-    fetchDevices().then((data)=>{
+    fetchDevices(null, null, 1, devices.limit).then((data)=>{
       devices.setDevices(data.rows);
       console.log(data);
+      devices.setTotalCount(data.count)
     })
 
     // setGoods(devices.devices)
@@ -38,6 +40,18 @@ const Gallery = observer(() => {
 
   }, [])
 
+  useEffect(() => {
+
+
+    fetchDevices(devices.selectedType.id, devices.selectedBrand.id, devices.page, devices.limit).then((data)=>{
+      devices.setDevices(data.rows);
+      // console.log(data);
+       devices.setTotalCount(data.count)
+    })
+
+
+  }, [devices.page, devices.selectedBrand, devices.selectedType])
+
     return (
         <div className="App">
             <Header />
@@ -45,6 +59,7 @@ const Gallery = observer(() => {
           {/* <Search filter={filter} setFilter={setFilter} /> */}
         
           <Store goods={devices.devices} />
+          <Pagination/>
         </div>
     )
 })

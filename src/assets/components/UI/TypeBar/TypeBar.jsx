@@ -21,14 +21,30 @@ const TypeBar = observer (() => {
                  
                  onClick={(e)=>{
                     devices.setSelectedType(type)
-                    
+                    console.log(devices.selectedType);
                     
                  }}
                  
 
                  className={devices.selectedType.id !== type.id? styles.item: styles.item + ' ' + styles.active}
                  >{type.name}</div>
+
+
             )}
+
+            <div 
+                 
+                 
+                 onClick={(e)=>{
+                    devices.setSelectedType({})
+                    console.log(devices.selectedType);
+                    
+                 }}
+                 
+
+                 className={styles.item}
+                 >Все</div>
+
         </div>
     );
 }

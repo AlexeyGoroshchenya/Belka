@@ -12,7 +12,7 @@ import { Context } from '../..';
 const AppRouter = () => {
 
     const {user} = useContext(Context)
-    console.log(user.isAuth);
+    
 
     return (
         <div>

@@ -154,6 +154,11 @@ h6 {
   color: var(--main-light-color);
 }
 
+.admin__body{
+  width: 90vw;
+  margin: auto;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

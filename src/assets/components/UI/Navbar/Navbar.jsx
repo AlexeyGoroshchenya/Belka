@@ -20,7 +20,7 @@ user.setUser({})
     return (
         <nav className={styles.navbar}>
 
-            {/* {user.isAuth && (user.user.role === 'ADMIN') ?
+            {user.isAuth && (user.user.role === 'ADMIN') ?
 
                 <div className={styles.button}
                     onClick={() =>
@@ -29,7 +29,7 @@ user.setUser({})
                 >Админ</div>
                 :
                 ''
-            } */}
+            }
 
             <div className={styles.button}
                 onClick={() =>

@@ -16,7 +16,7 @@ const App = observer(() => {
     check().then((data) => {
       user.setUser(data)
       user.setIsAuth(true)
-      console.log(data);
+      console.log(user.user.role);
 
     })
 
