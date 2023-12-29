@@ -5,6 +5,7 @@ import App from './App';
 
 import UserStore from './assets/store/UserStore';
 import DeviceStore from './assets/store/DeviceStore';
+import OrderStore from './assets/store/OrderStore';
 
 export const Context = createContext(null)
 
@@ -14,7 +15,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <Context.Provider value={{
   user: new UserStore(),
-  devices: new DeviceStore()
+  devices: new DeviceStore(),
+  order: new OrderStore()
 }}>
 
     <App />

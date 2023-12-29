@@ -5,7 +5,8 @@ import { ITEM_ROUTE } from '../../utils/consts';
 
 const Card = ({item, slider = false} ) => {
 
-    
+const images = item.img.split(',')
+
 
 let cardClassName = slider? styles.item + ' slider__item': styles.item
 
@@ -15,10 +16,10 @@ const router = useNavigate()
         <div className={cardClassName}>
             <div 
             className={styles.image}
-            style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${item.img})`}}
+            style={{backgroundImage: `url(${process.env.REACT_APP_API_URL}/${images[0]})`}}
             onClick={()=>{
-                console.log(item.id)
-                router(ITEM_ROUTE + '/' + item.id, { replace: true })
+                
+                router(ITEM_ROUTE + '/' + item.id, { replace: false })
             }}
             ></div>
             <div className={styles.content}>
@@ -27,17 +28,15 @@ const router = useNavigate()
                 <div className={styles.price}>{item.price} рублей</div>
 
                 <div className={styles.textbox}>
-                    <div className={styles.text}>{item.desc}</div>
+                    <div className={styles.text}>{item.description}</div>
                 </div>
                 
                 <div className={styles.button}
                 onClick={()=>{
-                    console.log(item)
-                    localStorage.test =  {id: item.id, name: item.name, price: item.price};
-                    console.log(localStorage.test)
-
+                    
+                    router(ITEM_ROUTE + '/' + item.id, { replace: false })
                 }}
-                >Заказать</div>
+                >Подробнее</div>
             </div>
 
 

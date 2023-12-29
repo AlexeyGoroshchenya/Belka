@@ -1,0 +1,181 @@
+.body{
+    padding: 20px;
+    color: var(--main-light-color);
+    width: 95vw;
+    margin: auto;
+}
+
+@media (min-width: 1200px) {
+    .body {
+        width: 90vw;
+    }
+  }
+
+.title{
+    font-size: 40px;
+    padding-bottom: 50px;
+}
+.items{
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+.item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    border: 1px solid var(--main-light-color);
+    padding: 20px 20px 60px 20px;
+    margin-bottom: 30px;
+    gap: 50px;
+}
+
+@media (min-width: 1023.98px) {
+    .item {
+        flex-direction: row;
+    }
+  }
+
+  @media (min-width: 767.98px) {
+    .item {
+        padding: 20px;
+    }
+  }
+
+.image{
+    flex: 0 0 300px;
+    border: 1px solid;
+
+    height: inherit;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.textbox{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media (min-width: 767.98px) {
+    .textbox {
+        flex-direction: row;
+    }
+  }
+
+.form{
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+.form,
+.actions{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+
+}
+
+.formTitle{
+    font-size: 32px;
+    padding-bottom: 20px;
+}
+
+.actions {
+    width: 100%;
+    gap: 20px;
+    flex-direction: column;
+    transition-duration: var(--hover-duration);
+}
+
+@media (min-width: 480px) {
+    .actions {
+        
+        flex-direction: row;
+    }
+  }
+
+@media (min-width: 767.98px) {
+    .actions {
+        width: fit-content;
+        flex-direction: column;
+    }
+  }
+
+.remove,
+.button{
+    width: 100%;
+    border: 1px solid;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+@media (min-width: 767.98px) {
+    .remove,
+    .button{
+        padding: 30px;
+    }
+  }
+
+
+.disabled{
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: var(--hover-duration);
+    /* background-color: rgba(255, 255, 255, 0.37);
+    cursor: auto; */
+}
+
+.select{
+    border-bottom: 1px solid;
+    line-height: 1.5;
+    align-self: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.select::after{
+content: '';
+position: absolute;
+bottom: -40px;
+left: 50%;
+transform: translateX(-50%);
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 1px solid;
+
+}
+
+.active::before{
+    content: '';
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: var(--main-light-color);
+}
+
+.notification{
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.notification span{
+    text-decoration: underline;
+    cursor: pointer;
+}

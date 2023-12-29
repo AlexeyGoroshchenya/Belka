@@ -8,3 +8,5 @@ export const GALLERY_ROUTE = '/gallery'
 export const ITEM_ROUTE = '/item'
 
 export const CHAT_ROUTE = '/chat'
+export const BASKET_ROUTE = '/basket'
+export const ORDER_ROUTE = '/order'

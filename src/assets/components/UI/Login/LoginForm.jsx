@@ -22,7 +22,7 @@ const LoginForm = () => {
             user.setIsAuth(true)
             
             user.setUser(response)
-            
+            window.history.back()
 
         } catch (e) {
             alert(e.response.data.message)
@@ -73,7 +73,7 @@ const LoginForm = () => {
             </div>
             <div className={styles.register}
             onClick={()=> 
-                router(REGISTER_ROUTE, { replace: true })
+                router(REGISTER_ROUTE, { replace: false })
             }
             >
             Еще не регистрировались? Можете сделать это <span>здесь.</span> 

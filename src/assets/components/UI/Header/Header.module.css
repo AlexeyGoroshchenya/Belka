@@ -6,12 +6,13 @@
     position: fixed;
     top: 0;
     left: 0;
-    
-    min-height: 100px;
+    z-index: 102;
+    height: 120px;
 width: 100%;
-background-color: var(--dark-bg-color);
+background-color: var(--half-transparent-bl);
 color: var(--main-light-color);
 border-bottom: 0.5px solid ;
+transition-duration: var(--hover-duration);
 }
 
 @media (min-width: 992px) {
@@ -21,32 +22,117 @@ border-bottom: 0.5px solid ;
     }
 }
 
+@media (any-hover: none) {
+    .header {
+height: 0;
+padding: 0;
+
+      }
+}
+
+.headerHidden{
+    transform: translateY(-100%);
+}
+
+
+
+.logo{
+    height: 100px;
+    width: 180px;
+    z-index: 102;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+
+}
+
+@media (any-hover: none) {
+    .logo {
+        /* border-bottom: 0.5px solid ;
+        border-right: 0.5px solid ;
+        background-color: var(--half-transparent-bl); */
+      }
+}
+
+.logo svg{
+    max-width: 100%;
+    height: 100%;
+    fill: var(--main-light-color);;
+}
+
+.nav__menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dark-bg-color);
+    z-index: 100;
+    transition-duration: var(--hover-duration);
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateX(0px);
+
+}
+
+.hidden{
+opacity: 0;
+visibility: hidden;
+transform: scale(0) translateX(100%);
+}
+
 
 .button{
     position: absolute;
-    top: 20px;
+    top: 30px;
     /* transform: translateX(50%); */
-    right: 0;
+    right: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: var(--half-transparent-wht);
+
+
+    border: 1px solid var(--main-light-color);
+    background-color: var(--dark-bg-color);
+    
     width: 60px;
     height: 60px;
-
+    z-index: 102;
+    
 }
 
 .button span{
-    width: 80%;
+    width: 70%;
     height: 2px;
-    background-color: black;
+    background-color: var(--main-light-color);
+}
+
+.button span:nth-child(2){
+    width: 35%;
+}
+
+.button span,
+.active span{
+    transition-duration: 0.5s;
+}
+
+.active span:nth-child(2){
+    width: 0;
+}
+
+.active span:nth-child(1){
+    transform: rotate(45deg) translateY(13px) translateX(13px);
+}
+
+.active span:nth-child(3){
+    transform: rotate(-45deg) translateY(-13px) translateX(13px);
 }
 
 
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
     .button{
         display: none;
     }
-}
+} */

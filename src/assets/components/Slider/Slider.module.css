@@ -1,58 +1,92 @@
-.slider{
+.slider {
     width: 100vw;
-    height: 100vh;
-    
+    height: auto;
+    padding-top: 150px;
     background-color: var(--main-light-color);
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 50px; */
 }
 
-.content{
+@media (min-width: 992px) {
+    .slider {
+        padding-top: 160px;
+    }
+}
+
+.content {
+    width: 100%;
+    padding-bottom: 20px;
+    /* overflow-y: auto; */
+}
+
+@media (min-width: 992px) {
+    .content {
+        overflow-y: auto;
+    }
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 70vh;
+    padding: 0 30px;
     width: 100%;
     overflow-y: auto;
 }
 
-.body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-   height: 70vh;
-   padding: 0 20px;
-   width: 100%;
-   overflow-y: auto;
+@media (orientation: landscape) {
+    .body {
+      flex-direction: row;
+    }
+  }
+  
+  @media (orientation: portrait) {
+    .body {
+      flex-direction: column;
+      height: auto;
+    }
+  }
+
+  @media (any-hover: none) {
+    .body {
+
+        height: auto;
+      }
 }
 
-.title{
+.title {
     color: var(--dark-bg-color);
     font-size: 45px;
     line-height: 40px;
     font-style: italic;
-    font-family:'Good Vibes Pro';
+    font-family: 'Good Vibes Pro';
     letter-spacing: 7px;
+    padding-bottom: 30px;
 
 }
 
-.buttons{
+.buttons {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
+    padding-bottom: 20px;
 }
 
-.button{
+.button {
     background-color: var(--dark-bg-color);
     color: var(--main-light-color);
     cursor: pointer;
     transition-duration: var(--hover-duration);
 }
 
-.button:hover{
+
+
+.button:hover {
     transform: scale(1.1);
 }
-
-
-

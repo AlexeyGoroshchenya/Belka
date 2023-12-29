@@ -1,23 +1,32 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styles from "./Cover.module.css";
 import { useNavigate } from 'react-router-dom';
 import { GALLERY_ROUTE } from '../../utils/consts';
+import { isMobile } from '../../utils/helpers';
 
 const Cover = React.memo(
-    ({started, setStarted, scroll}) => {
+    () => {
 
-        const coverRef = useRef()
+        let coverStyles = ''
+        if(isMobile.any()){
+            coverStyles = window.innerWidth < 900 ? styles.cover + ' ' + styles.small: styles.cover + ' ' + styles.medium
+        } else {
+            coverStyles = window.innerWidth < 1500 ?  styles.cover + ' ' + styles.medium : styles.cover
+        }
+
+         
+        
+console.log(coverStyles);
+
+        
 
         const router = useNavigate()
 
-        useEffect(()=>{
-            scroll.setScrollBorders(prev=>[...prev, {id: coverRef.current.attributes.id.value, offset: coverRef.current.offsetTop}])
-    console.log( scroll.scrollBorders)
-        }, [])
+
 
 
         return (
-            <section id='cover' ref={coverRef} className={styles.cover}>
+            <section id='cover' className={coverStyles}>
                 <div className={styles.body}>
     
                 <h1 className={styles.logo}>
@@ -28,7 +37,7 @@ const Cover = React.memo(
                 </div>
                 <div className={styles.button}
                 onClick={()=> 
-                    router(GALLERY_ROUTE, { replace: true })
+                    router(GALLERY_ROUTE, { replace: false })
                 }
                 >
                     Посмотреть красоту

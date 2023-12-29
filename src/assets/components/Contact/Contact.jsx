@@ -1,18 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styles from './Contact.module.css'
 
-const Contact = ({scroll}) => {
-    const contactRef = useRef()
-
-    useEffect(()=>{
-        scroll.setScrollBorders(prev=>[...prev, {id: contactRef.current.attributes.id.value, offset: contactRef.current.offsetTop}])
-console.log( scroll.scrollBorders)
-    }, [])
+const Contact = React.memo(() => {
+    
+console.log('contact rerender');
+ 
     
     return (
-        <section ref={contactRef} id='contact' className={styles.body}>
-            <div className={styles.image}>
-                <img loading='lazy' src={`${process.env.PUBLIC_URL}/images/content/8.webp`} alt="" />
+        <section id='contact' className={styles.contact}>
+            <div className={styles.body}>
+                 <div className={styles.image}>
+                <img loading='lazy' src={`${process.env.PUBLIC_URL}/images/wallpapers/contact.webp`} alt="" />
 
 
             </div>
@@ -24,13 +22,13 @@ console.log( scroll.scrollBorders)
 
 
                     </div>
-                    <div className={styles.phone}>
+                    <div className={styles.row}>
 
-                        <div className={styles.subtitle}>
+                        <a href='tel:+375298621966' className={styles.subtitle}>
 
-                            Позвонить
+                        <img src={`${process.env.PUBLIC_URL}/images/phone.svg`} alt="" />
 
-                        </div>
+                        </a>
                         <div className={styles.text}>
 
                             +375298621966
@@ -39,15 +37,15 @@ console.log( scroll.scrollBorders)
 
 
                     </div>
-                    <div className={styles.socials}>
-                        <div className={styles.subtitle}>
+                    <div className={styles.row}>
+                        <a href='https://www.instagram.com/belka_jewelry/' target='blank' className={styles.subtitle}>
 
-                            Написать
+                        <img src={`${process.env.PUBLIC_URL}/images/instagram.svg`} alt="" />
 
-                        </div>
+                        </a>
                         <div className={styles.text}>
 
-                            @dfgdfgfdgfg
+                            @belka_jewelry
 
                         </div>
 
@@ -60,9 +58,11 @@ console.log( scroll.scrollBorders)
 
             </div>
 
+            </div>
+           
 
         </section>
     );
-};
+});
 
 export default Contact;

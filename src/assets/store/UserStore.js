@@ -14,7 +14,7 @@ setIsAuth(bool){
 }
 
 setUser(user){
-    this._User = user
+    this._user = user
 }
 
 get isAuth(){
@@ -22,7 +22,7 @@ get isAuth(){
 }
 
 get user(){
-    return  this._User
+    return  this._user
 }
 
 

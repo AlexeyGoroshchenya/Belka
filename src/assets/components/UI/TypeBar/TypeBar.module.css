@@ -7,6 +7,13 @@
     height: fit-content;
     height: -moz-fit-content;
     padding: 20px;
+    
+}
+
+@media (max-width: 767.98px) {
+    .body{
+        gap: 15px;
+    }
 }
 
 .item{
@@ -24,5 +31,11 @@
 }
 
 .active {
-    background-color: var(--half-transparent-bl)
+    background-color: var(--half-transparent-bl);
+    position: relative
+}
+
+.active::after {
+    content:'';
+
 }

@@ -82,7 +82,7 @@ const RegisterForm = observer(() => {
                 </div>
                 <div className={styles.register}
                     onClick={() =>
-                        router(LOGIN_ROUTE, { replace: true })
+                        router(LOGIN_ROUTE, { replace: false })
                     }
                 >
                     Уже регистрировались? Можете залогиниться <span>здесь.</span>

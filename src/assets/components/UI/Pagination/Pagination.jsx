@@ -1,21 +1,26 @@
 import { observer } from 'mobx-react-lite';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../../..';
 import styles from './Pagination.module.css'
 
-const Pagination = observer(() => {
+const Pagination = observer(({rows}) => {
 
     const {devices} = useContext(Context)
+    
 
-    const pagesCount = Math.ceil(devices.totalCount/ devices.limit)
+    
     const pages = []
 
-    for (let i = 0; i < pagesCount; i++) {
-        pages.push(i + 1)
+    const pagesCount = Math.ceil(devices.totalCount/ (devices.limit*rows))
 
-        
+         for (let i = 0; i < pagesCount; i++) {
+
+            pages.push(i + 1)
         
     }
+
+
+   
 
 
     return (
@@ -26,7 +31,10 @@ const Pagination = observer(() => {
             
             onClick={(e)=>{
                 devices.setPage(page)
-                
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  })
              }}
              
 
