@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './order.module.css'
 import { useNavigate } from 'react-router-dom';
-import { GALLERY_ROUTE, ITEM_ROUTE } from '../../utils/consts';
+import { GALLERY_ROUTE, PRODUCT_ROUTE } from '../../utils/consts';
 
-const OrderForm = ({ 
+const OrderForm = ({
     orders,
     addOrder,
     orderCreated,
@@ -17,7 +17,41 @@ const OrderForm = ({
 
     const totalPrice = orders.reduce((sum, current) => sum + current.price, 0)
 
+    const [isName, setIsName] = useState(true)
+    const [isPhone, setIsPhone] = useState(true)
+
     const router = useNavigate()
+
+    const validate = () => {
+
+        if (isAuth) {
+            addOrder()
+            return
+        } 
+        
+        let name = false
+        let phone = false
+
+
+            if (userName.match(/[^а-яА-яa-zA-Z\s]/) || userName.length < 2) {
+                setIsName(name)
+            } else {
+                setIsName(true)
+                name = true
+            }
+
+            if (userPhone.length < 10 || userPhone.match(/[^0-9\(\)\-\+]/)) {
+                setIsPhone(phone)
+            } else {
+                setIsPhone(true)
+                phone = true
+            }
+
+            if(!name || !phone) return
+            console.log(name, phone);
+            addOrder() 
+
+    }
 
     if (orderCreated) return (
         <div className={styles.body}>
@@ -47,7 +81,7 @@ const OrderForm = ({
                         <div className={styles.image}
                             style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/${item.img?.includes(",") ? item.img.split(',')[0] : item.img})` }}
                             onClick={() => {
-                                router(ITEM_ROUTE + '/' + item.id, { replace: false })
+                                router(PRODUCT_ROUTE + '/' + item.id, { replace: false })
 
                             }}
                         ></div>
@@ -81,50 +115,57 @@ const OrderForm = ({
 
             </div>
 
-            { 
-            !isAuth?  <div className={styles.contacts}>
+            {
+                !isAuth ? <div className={styles.contacts}>
                     <div className={styles.name}>
                         <label htmlFor="name">Имя: </label>
                         <input type="text"
-                         id='name'
-                         value={userName}
-                         onChange={(e)=>{
-                            setUserName(e.target.value)
-                         }}
-                         
-                         />
-                        
+                            id='name'
+                            value={userName}
+                            onChange={(e) => {
+                                setUserName(e.target.value)
+                            }}
+
+                        />
+                        {
+                            !isName ? <div className={styles.nameNotice}>Это обязательное поле</div> : ''
+                        }
+
+
                     </div>
                     <div className={styles.phone}>
                         <label htmlFor="tel">Телефон: </label>
                         <input type="tel"
-                         id='tel'
-                         value={userPhone}
-                         onChange={(e)=>{
-                            setUserPhone(e.target.value)
-                         }}
-                         />
-                        
+                            id='tel'
+                            value={userPhone}
+                            onChange={(e) => {
+                                setUserPhone(e.target.value)
+                            }}
+                        />
+                        {
+                            !isPhone ? <div className={styles.phoneNotice}>Это обязательное поле</div> : ''
+
+                        }
                     </div>
                 </div>
-                :''
+                    : ''
             }
 
             <div className={styles.note}>
-                        <label htmlFor="note">Примечание: </label>
-                        <textarea type="text"
-                         id='note'
-                         value={note}
-                         onChange={(e)=>{
-                            setNote(e.target.value)
-                         }}
-                         
-                         />
-                        
-                    </div>
+                <label htmlFor="note">Примечание: </label>
+                <textarea type="text"
+                    id='note'
+                    value={note}
+                    onChange={(e) => {
+                        setNote(e.target.value)
+                    }}
+
+                />
+
+            </div>
 
             <div className={styles.button}
-                onClick={addOrder}>
+                onClick={validate}>
                 Отправить заказ
             </div>
 

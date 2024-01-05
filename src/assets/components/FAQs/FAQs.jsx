@@ -17,11 +17,11 @@ const FAQs = React.memo(() => {
 
             <div className={styles.body}>
 
-                <div className={styles.title}>
+                <div className={styles.title + ' sectionTitle'}>
                     Вопросы
                 </div>
 
-                <div className={styles.questions}>
+                <div className={styles.questions + ' sectionText'}>
 
                     <div className={styles.question}>
                         <p><span>Как купить?</span></p>

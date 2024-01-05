@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Basket.module.css'
-import { ITEM_ROUTE } from '../../utils/consts';
+import { PRODUCT_ROUTE } from '../../utils/consts';
 import { useNavigate } from 'react-router-dom';
 
 const BasketCard = ({item, remove, select, setSelect, selected, createOrder}) => {
@@ -25,7 +25,7 @@ const BasketCard = ({item, remove, select, setSelect, selected, createOrder}) =>
                             style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/${images[0]})` }}
                             onClick={()=>{
                 
-                                router(ITEM_ROUTE + '/' + item.id, { replace: false })
+                                router(PRODUCT_ROUTE + '/' + item.id, { replace: false })
                             }}
                         >
 

@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
-import styles from './Item.module.css'
+import styles from './Product.module.css'
 import { useNavigate } from 'react-router-dom';
 import { BASKET_ROUTE, ORDER_ROUTE } from '../../utils/consts';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../..';
+import { changeBasket } from '../../utils/helpers';
 
 
 
 
-const Item = observer(({ item, inWish, setInWish, slide, setSlide}) => {
+const Product = observer(({ item, inWish, setInWish, slide, setSlide}) => {
 
     const {order} = useContext(Context)
 
@@ -19,29 +20,29 @@ const Item = observer(({ item, inWish, setInWish, slide, setSlide}) => {
     
    
 
-    const changeBasket = () => {
-        const selectedObject = { id: item.id, name: item.name, price: item.price, img: item.img }
 
-        if (!localStorage.basket) {
 
-            localStorage.setItem('basket', JSON.stringify([selectedObject]))
-        } else {
+    // const changeBasket = () => {
+    //     const selectedObject = { id: item.id, name: item.name, price: item.price, img: item.img }
 
-            let basket = JSON.parse(localStorage.basket)
-            if (basket.find(el => el.id === item.id)) {
-                let index = basket.findIndex(el => el.id === item.id)
-                basket.splice(index, 1)
-                setInWish(false)
+    //     if (!localStorage.basket) {
 
-            } else {
-                basket.push(selectedObject)
-                setInWish(true)
-            }
+    //         localStorage.setItem('basket', JSON.stringify([selectedObject]))
+    //     } else {
 
-            localStorage.setItem('basket', JSON.stringify(basket))
-        }
+    //         let basket = JSON.parse(localStorage.basket)
+    //         if (basket.find(el => el.id === item.id)) {
+    //             let index = basket.findIndex(el => el.id === item.id)
+    //             basket.splice(index, 1)
+    //             setInWish(false)
 
-    }
+    //         } else {
+    //             basket.push(selectedObject)
+    //             setInWish(true)
+    //         }
+    //         localStorage.setItem('basket', JSON.stringify(basket))
+    //     }
+    // }
 
     const changeSlide = ()=>{
 
@@ -52,7 +53,7 @@ const Item = observer(({ item, inWish, setInWish, slide, setSlide}) => {
 
     const createOrder = ()=>{
 
-        changeBasket()
+        changeBasket(item, setInWish)
        // order.setOrder([item])
         router(BASKET_ROUTE, { replace: false, state: { itemId: item.id } })
     }
@@ -66,14 +67,13 @@ const Item = observer(({ item, inWish, setInWish, slide, setSlide}) => {
                 <div className={styles.imagebox}>
                     <div
                         className={styles.image}
-                        // style={{backgroundImage: 'url(/images/content/' + item.image + ')'}}
-                        onClick={() => {
+                            onClick={() => {
 
-                           // if(images.lenght>0) 
+                           
                             changeSlide()
 
                            
-                            // router(ITEM_ROUTE + '/' + item.id, { replace: false })
+                            // router(PRODUCT_ROUTE + '/' + item.id, { replace: false })
                         }}
                     >
                         <img src={`${process.env.REACT_APP_API_URL}/${images[slide]}`} alt="" />
@@ -82,7 +82,7 @@ const Item = observer(({ item, inWish, setInWish, slide, setSlide}) => {
 
                     <div className={styles.buttons}>
                         <div className={styles.button}
-                            onClick={changeBasket}
+                            onClick={()=>{changeBasket(item, setInWish)}}
                         >
                             {
                                 
@@ -161,4 +161,4 @@ const Item = observer(({ item, inWish, setInWish, slide, setSlide}) => {
 })
 
 
-export default Item;
+export default Product;

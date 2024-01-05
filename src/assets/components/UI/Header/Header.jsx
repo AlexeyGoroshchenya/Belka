@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import style from './Header.module.css'
 import Navbar from '../Navbar/Navbar';
+import { HOME_ROUTE } from '../../../utils/consts';
+import { useNavigate } from 'react-router-dom';
 
 const Header = React.memo(() => {
 
-
+  const router = useNavigate()
 
   console.log('header');
 
@@ -12,13 +14,30 @@ const Header = React.memo(() => {
 
   const [headerShow, setHeaderShow] = useState(true)
 
-  useEffect(() => {
+const goHome = ()=>{
 
-  }, [])
+  console.log(window.location.pathname);
+  if(window.location.pathname !== HOME_ROUTE){
+    router(HOME_ROUTE, { replace: false })
+  } else {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+}
+
+  useEffect(() => {
+    document.body.style.overflow = !menuShow ? "" : "hidden"
+
+}, [menuShow])
 
   return (
     <header className={headerShow ? style.header : style.header + ' ' + style.headerHidden}>
-      <div className={style.logo}><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+      <div 
+      className={style.logo}
+      onClick={goHome}
+      ><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
         width="794.000000pt" height="431.000000pt" viewBox="0 0 794.000000 431.000000"
         preserveAspectRatio="xMidYMid meet">
 
@@ -79,7 +98,7 @@ m385 -472 l70 -24 3 -287 2 -286 -33 -21 c-56 -34 -117 -52 -203 -58 -152 -11
         </g>
       </svg></div>
       <div className={menuShow ? style.nav__menu : style.nav__menu + ' ' + style.hidden}>
-        <Navbar menuShow={menuShow} setMenuShow={setMenuShow} />
+        <Navbar menuShow={menuShow} setMenuShow={setMenuShow} goHome={goHome} />
       </div>
 
       <button className={!menuShow ? style.button : style.button + ' ' + style.active}

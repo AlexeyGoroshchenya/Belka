@@ -5,7 +5,7 @@ export const REGISTER_ROUTE = '/register'
 
 export const HOME_ROUTE = '/'
 export const GALLERY_ROUTE = '/gallery'
-export const ITEM_ROUTE = '/item'
+export const PRODUCT_ROUTE = '/product'
 
 export const CHAT_ROUTE = '/chat'
 export const BASKET_ROUTE = '/basket'

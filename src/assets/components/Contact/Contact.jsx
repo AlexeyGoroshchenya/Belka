@@ -17,19 +17,19 @@ console.log('contact rerender');
             <div className={styles.desc}>
                 <div className={styles.content}>
 
-                    <div className={styles.title}>
+                    <div className={styles.title + ' sectionTitle'}>
                         Свяжитесь со мной
 
 
                     </div>
                     <div className={styles.row}>
 
-                        <a href='tel:+375298621966' className={styles.subtitle}>
+                        <a href='tel:+375298621966' className={styles.subtitle + ' sectionTitle'}>
 
                         <img src={`${process.env.PUBLIC_URL}/images/phone.svg`} alt="" />
 
                         </a>
-                        <div className={styles.text}>
+                        <div className={styles.text  + ' sectionText'}>
 
                             +375298621966
 
@@ -38,12 +38,12 @@ console.log('contact rerender');
 
                     </div>
                     <div className={styles.row}>
-                        <a href='https://www.instagram.com/belka_jewelry/' target='blank' className={styles.subtitle}>
+                        <a href='https://www.instagram.com/belka_jewelry/' target='blank' className={styles.subtitle  + ' sectionTitle'}>
 
                         <img src={`${process.env.PUBLIC_URL}/images/instagram.svg`} alt="" />
 
                         </a>
-                        <div className={styles.text}>
+                        <div className={styles.text  + ' sectionText'}>
 
                             @belka_jewelry
 

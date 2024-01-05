@@ -10,10 +10,10 @@ const Brand = React.memo(() => {
         <section id='brand' className={styles.body}>
 
             <div className={styles.desc}>
-                <div className={styles.title}>
+                <div className={styles.title + ' sectionTitle'}>
                     Каждый найдет тут что-то невероятное
                 </div>
-                <div className={styles.text}>
+                <div className={styles.text + ' sectionText'}>
                     Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное.
                 </div>
 

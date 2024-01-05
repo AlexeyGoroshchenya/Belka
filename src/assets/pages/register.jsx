@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterForm from '../components/UI/Register/RegisterForm';
+import RegisterForm from '../components/Register/RegisterForm';
 import Header from '../components/UI/Header/Header';
 
 

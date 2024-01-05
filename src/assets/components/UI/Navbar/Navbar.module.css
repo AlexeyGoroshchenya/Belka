@@ -1,13 +1,22 @@
 .navbar{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.body{
+     display: flex;
     flex-wrap: wrap;
     gap: 50px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    padding: 50px;
+    background-color: var(--half-transparent-bl);
+    padding: 50px;   
 }
+
+
 
 /* @media (min-width: 992px) {
     .navbar{

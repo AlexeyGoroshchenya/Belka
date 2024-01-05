@@ -49,11 +49,11 @@ const Slider = observer(() => {
 
     return (
         <section id='slider' className={styles.slider}>
-            <div className={styles.title}>
+            <div className={styles.title + ' sectionTitle'}>
                 Новая коллекция
             </div>
 
-            <div className={styles.content}>
+            <div className={styles.content + ' sectionText'}>
                 {
                 
                     <div className={styles.body} >

@@ -101,7 +101,7 @@ body {
 
   --hover-duration: 0.5s;
   --half-transparent-wht: rgba(255, 255, 255, 0.5);
-  --half-transparent-bl: rgba(0, 0, 0, 0.5);
+  --half-transparent-bl: rgba(0, 0, 0, 0.6);
   --main-light-color: #C4BAA6;
   --dark-bg-color: #1B201E; 
 

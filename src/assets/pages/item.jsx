@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Item from '../components/Item/Item';
+import Product from '../components/Product/Product';
 import { useParams } from 'react-router-dom';
 import { Context } from '../..';
 import Header from '../components/UI/Header/Header';
 import ChangePageButtons from '../components/UI/ChangePageButtons/ChangePageButtons';
 import { checkLocalBasket, fetchDevices, fetchOneDevice } from '../http/deviceApi';
 import { useNavigate } from 'react-router-dom';
-import { GALLERY_ROUTE, ITEM_ROUTE } from '../utils/consts';
+import { GALLERY_ROUTE, PRODUCT_ROUTE } from '../utils/consts';
 
 
 const ItemPage = () => {
@@ -72,13 +72,13 @@ const ItemPage = () => {
 
     const prevPage = ()=>{
         setSlide(0)
-        router(ITEM_ROUTE + '/' + buttonIndexes[0], { replace: false })
+        router(PRODUCT_ROUTE + '/' + buttonIndexes[0], { replace: false })
         
     }
 
     const nextPage = ()=>{
         setSlide(0)
-        router(ITEM_ROUTE + '/' + buttonIndexes[1], { replace: false })
+        router(PRODUCT_ROUTE + '/' + buttonIndexes[1], { replace: false })
     }
 
     const goTo = ()=>{
@@ -93,7 +93,7 @@ const ItemPage = () => {
         }}>
             <Header />
             <ChangePageButtons prevPage={prevPage} goTo={goTo} nextPage={nextPage} />
-            <Item item={item} inWish={inWish} setInWish={setInWish} slide={slide} setSlide={setSlide} />
+            <Product item={item} inWish={inWish} setInWish={setInWish} slide={slide} setSlide={setSlide} />
         </div>
     );
 };

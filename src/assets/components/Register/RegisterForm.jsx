@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import styles from './RegisterForm.module.css'
 import { useNavigate } from 'react-router-dom';
-import { LOGIN_ROUTE } from '../../../utils/consts';
-import { Context } from '../../../..';
-import { registration } from '../../../http/userAPI';
+import { LOGIN_ROUTE } from '../../utils/consts';
+import { Context } from '../../..';
+import { registration } from '../../http/userAPI';
 import { observer } from 'mobx-react-lite';
 
 const RegisterForm = observer(() => {

@@ -9,7 +9,7 @@ import { createBrand, createType } from '../http/deviceApi';
 import { useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../utils/consts';
 import Loader from '../components/UI/Loader/Loader';
-import OrdersList from '../components/Admin/OrdersList';
+import AdminOrdersList from '../components/Admin/AdminOrdersList';
 import { getAllOrders } from '../http/orderApi';
 
 const Admin = observer(() => {
@@ -79,7 +79,7 @@ const Admin = observer(() => {
             <div className='admin__body'>
 
                 <div className="admine__block">
-                    <OrdersList orders={orders} > Список заказов </OrdersList>
+                    <AdminOrdersList orders={orders} > Список заказов </AdminOrdersList>
                 </div>
 
 

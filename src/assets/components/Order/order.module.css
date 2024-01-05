@@ -134,11 +134,35 @@
 
 .name {
     flex: 0 0 44%;
+    position: relative;
+}
+
+.phoneNotice,
+.nameNotice{
+position: absolute;
+top: -50px;
+right: 0;
+padding: 20px;
+background-color: var(--main-light-color);
+color: var(--dark-bg-color);
+border-radius: 10px;
+}
+
+.phoneNotice::after,
+.nameNotice::after{
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--main-light-color);
+    position: absolute;
+    bottom: -5px;
+    left: 40px;
+    transform: rotate(45deg);
 }
 
 .phone {
     flex: 0 0 44%;
-
+position: relative;
 }
 
 .note{

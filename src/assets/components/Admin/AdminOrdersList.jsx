@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Admin.module.css';
+import Modal from '../UI/Modal/Modal';
 
-const OrdersList = ({ children, orders }) => {
+const AdminOrdersList = ({ children, orders }) => {
 
     // const ordersForRender = orders.map(order=>{
     //     order.devices = JSON.parse(order.devices)
@@ -9,6 +10,9 @@ const OrdersList = ({ children, orders }) => {
     // console.log(ordersForRender);
 
     const [hidden, setHidden] = useState(true)
+    const [showModal, setShowModal] = useState(false)
+    const [processingOrder, setProcessingOrder] = useState(0)
+
 
     return (
         <>
@@ -22,6 +26,10 @@ const OrdersList = ({ children, orders }) => {
                     orders.map(order =>
                         <div key={order.id + order.name} className={styles.order}>
                             <div className={styles.column}>
+                                
+                            <div className={styles.name}>
+                                    № заказа: {order.id}
+                                </div>
                                 <div className={styles.name}>
                                     Имя клиента: {order.name}
                                 </div>
@@ -53,7 +61,10 @@ const OrdersList = ({ children, orders }) => {
                                 }
 
                             </div>
-                            <div className={styles.recive}>
+                            <div className={styles.recive}
+                            onClick={()=>{
+                                setProcessingOrder(order.id)
+                                setShowModal(true)}}>
                                 Обработать заказ
                             </div>
 
@@ -65,9 +76,18 @@ const OrdersList = ({ children, orders }) => {
 
                 }
             </div>
-
+            <Modal visible={showModal} setVisible={setShowModal}>
+                
+                
+                Заказ №{processingOrder}
+                Заказ взят в работу
+                Заказ в архив
+                Примечание:
+                
+                
+                </Modal>
         </>
     );
 };
 
-export default OrdersList;
+export default AdminOrdersList;

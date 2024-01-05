@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import styles from './LoginForm.module.css'
 import { useNavigate } from 'react-router-dom';
-import { REGISTER_ROUTE } from '../../../utils/consts';
-import { Context } from '../../../..';
-import { login } from '../../../http/userAPI';
+import { GALLERY_ROUTE, REGISTER_ROUTE } from '../../utils/consts';
+import { Context } from '../../..';
+import { login } from '../../http/userAPI';
 
 const LoginForm = () => {
 
@@ -22,7 +22,8 @@ const LoginForm = () => {
             user.setIsAuth(true)
             
             user.setUser(response)
-            window.history.back()
+            router(GALLERY_ROUTE, { replace: false })
+            
 
         } catch (e) {
             alert(e.response.data.message)
