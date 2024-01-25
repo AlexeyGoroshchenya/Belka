@@ -38,7 +38,11 @@ export const fetchOneDevice = async (id)=>{
 }
 
 export const checkLocalBasket = async (id)=>{
-    return JSON.parse(localStorage.basket).find(el => el.id === parseFloat(id))
+    if(localStorage.basket){
+        return JSON.parse(localStorage.basket).find(el => el.id === parseFloat(id))
+    } else {
+        return undefined
+    }
     
 }
 
