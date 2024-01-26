@@ -1,19 +1,25 @@
 import React from 'react';
 import styles from './FAQs.module.css'
+import { useInView } from 'react-intersection-observer';
 
 const FAQs = React.memo(() => {
 
-    console.log('faqs rerender');
-
+    
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0.5,
+        initialInView: false,
+        triggerOnce: true,
+      });
    
-
+      console.log(inView);
     // useEffect(() => {
     //     scroll.setScrollBorders(prev => [...prev, { id: faqsRef.current.attributes.id.value, offset: faqsRef.current.offsetTop }])
     //     console.log(scroll.scrollBorders)
     // }, [])
 
     return (
-        <section id='faqs' className={styles.faqs}>
+        <section ref={ref} id='faqs' className={inView? styles.faqs + ' visibleSection':styles.faqs + ' hiddenSection'}>
 
             <div className={styles.body}>
 

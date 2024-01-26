@@ -1,13 +1,22 @@
 import React from 'react';
 import styles from './Brand.module.css'
+import { useInView } from 'react-intersection-observer';
 
 const Brand = React.memo(() => {
 
-    console.log('brand rerender');
+    
 
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0.5,
+        initialInView: false,
+        triggerOnce: true,
+        rootMargin: '50px 0px 0px 0px', 
+      });
+console.log(inView);
 
     return (
-        <section id='brand' className={styles.body}>
+        <section ref={ref} id='brand' className={inView? styles.body + ' visibleSection':styles.body + ' hiddenSection'}>
 
             <div className={styles.desc}>
                 <div className={styles.title + ' sectionTitle'}>

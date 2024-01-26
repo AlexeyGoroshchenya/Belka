@@ -1,13 +1,21 @@
 import React from 'react';
 import styles from './Contact.module.css'
+import { useInView } from 'react-intersection-observer';
 
 const Contact = React.memo(() => {
     
-console.log('contact rerender');
- 
+
+const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0.5,
+    initialInView: false,
+    triggerOnce: true,
+  });
+
+  console.log(inView);
     
     return (
-        <section id='contact' className={styles.contact}>
+        <section ref={ref} id='contact' className={inView? styles.contact + ' visibleSection':styles.contact + ' hiddenSection'}>
             <div className={styles.body}>
                  <div className={styles.image}>
                 <img loading='lazy' src={`${process.env.PUBLIC_URL}/images/wallpapers/contact.webp`} alt="" />

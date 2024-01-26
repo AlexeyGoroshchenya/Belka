@@ -6,18 +6,26 @@ import ChangePageButtons from '../UI/ChangePageButtons/ChangePageButtons';
 import { Context } from '../../..';
 import { observer } from 'mobx-react-lite';
 import { GALLERY_ROUTE } from '../../utils/consts';
+import { useInView } from 'react-intersection-observer';
 
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { Carousel } from 'react-responsive-carousel';
 
 const Slider = observer(() => {
 
-    console.log('slider rerender');
+    
 
     const {devices} = useContext(Context)
     const router = useNavigate()
-
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0.5,
+        initialInView: false,
+        triggerOnce: true,
+      });
    
+      console.log(inView);
+
     const changePage = (increase)=>{
 
         let pages = Math.ceil(devices.totalCount/devices.limit)
@@ -48,7 +56,7 @@ const Slider = observer(() => {
 
 
     return (
-        <section id='slider' className={styles.slider}>
+        <section ref={ref} id='slider' className={inView? styles.slider + ' visibleSection':styles.slider + ' hiddenSection'}>
             <div className={styles.title + ' sectionTitle'}>
                 Новая коллекция
             </div>
