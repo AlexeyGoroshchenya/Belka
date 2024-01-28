@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useIdleTimer } from 'react-idle-timer/legacy'
 
 import db from '../../assets/data/db.json'
 
@@ -17,11 +18,40 @@ const Home = observer(() => {
 
   const { devices } = useContext(Context)
 
+  const [activity, setActivity] = useState(true)
+  const [count, setCount] = useState(0)
+  const [remaining, setRemaining] = useState(0)
 
+  const onIdle = () => {
+    setActivity(false)
+  }
+
+  const onActive = () => {
+    setActivity(true)
+  }
+
+  const onAction = () => {
+    setCount(count + 1)
+  }
+
+  const { getRemainingTime } = useIdleTimer({
+    onIdle,
+    onActive,
+    onAction,
+    timeout: 60_000,
+    throttle: 500
+  })
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRemaining(Math.ceil(getRemainingTime() / 1000))
+    }, 500)
+
+    return () => {
+      clearInterval(interval)
+    }
+  })
  
-const [userIsActive, setUserIsActive] = useState(false)
-
-
 
 
   useEffect(() => {
@@ -34,17 +64,7 @@ const [userIsActive, setUserIsActive] = useState(false)
       
       devices.setTotalCount(data.count)
     })
-    
 
-    // window.addEventListener('pointermove', active);
-    // window.addEventListener('keypress', active);
-    // window.addEventListener('click', active);
-
-    // return () => {
-    //   window.removeEventListener('pointermove', active)
-    //   window.removeEventListener('keypress', active)
-    //   window.removeEventListener('click', active)
-    // }
   }, [])
 
 
@@ -60,8 +80,8 @@ const [userIsActive, setUserIsActive] = useState(false)
   }, [devices.page])
 
 
-{/* <SceenSaver /> */}
 
+if(!activity) return <SceenSaver />
 
 
   return (
