@@ -11,10 +11,10 @@ const BasketForm = observer(() => {
     const router = useNavigate()
     const location = useLocation()
 
-    const [items, setItems] = useState(JSON.parse(localStorage.getItem('basket')))
+    const [items, setItems] = useState([])
     const [select, setSelect] = useState([])
 
-    console.log(items.length);
+    
 
     const removeFromBasket = () => {
 
@@ -36,10 +36,7 @@ const BasketForm = observer(() => {
             // }
         })
 
-
-
         order.setOrder(newOrder)
-
         console.log(order);
 
         router(ORDER_ROUTE, { replace: false })
@@ -49,16 +46,13 @@ const BasketForm = observer(() => {
 
         if (location.state?.itemId) setSelect(prev => [...prev, location.state?.itemId])
 
-
     }, [])
 
     useEffect(() => {
-
-        console.log(select);
-        // if(selected.find(item=> item)){}
+        if(localStorage.getItem('basket')) setItems(JSON.parse(localStorage.getItem('basket')))        
 
 
-    }, [select])
+    }, [])
 
     return (
         <div className={styles.body}>
