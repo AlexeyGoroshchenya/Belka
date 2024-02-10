@@ -76,7 +76,7 @@ const Product = observer(({ item, inWish, setInWish, slide, setSlide}) => {
                             // router(PRODUCT_ROUTE + '/' + item.id, { replace: false })
                         }}
                     >
-                        <img src={`${process.env.REACT_APP_API_URL}/${images[slide]}`} alt="" />
+                        <img src={`${process.env.PUBLIC_API_URL}/${images[slide]}`} alt="" />
 
                     </div>
 

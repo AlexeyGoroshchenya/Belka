@@ -18,7 +18,7 @@ const { ref, inView, entry } = useInView({
         <section ref={ref} id='contact' className={inView? styles.contact + ' visibleSection':styles.contact + ' hiddenSection'}>
             <div className={styles.body}>
                  <div className={styles.image}>
-                <img loading='lazy' src={`${process.env.PUBLIC_URL}/images/wallpapers/contact.webp`} alt="" />
+                <img loading='lazy' src={`${process.env.ASSET_PREFIX}/images/wallpapers/contact.webp`} alt="" />
 
 
             </div>
@@ -34,7 +34,7 @@ const { ref, inView, entry } = useInView({
 
                         <a href='tel:+375298621966' className={styles.subtitle + ' sectionTitle'}>
 
-                        <img src={`${process.env.PUBLIC_URL}/images/phone.svg`} alt="" />
+                        <img src={`${process.env.ASSET_PREFIX}/images/phone.svg`} alt="" />
 
                         </a>
                         <div className={styles.text  + ' sectionText'}>
@@ -48,7 +48,7 @@ const { ref, inView, entry } = useInView({
                     <div className={styles.row}>
                         <a href='https://www.instagram.com/belka_jewelry/' target='blank' className={styles.subtitle  + ' sectionTitle'}>
 
-                        <img src={`${process.env.PUBLIC_URL}/images/instagram.svg`} alt="" />
+                        <img src={`${process.env.ASSET_PREFIX}/images/instagram.svg`} alt="" />
 
                         </a>
                         <div className={styles.text  + ' sectionText'}>

@@ -79,7 +79,7 @@ const OrderForm = ({
                 {orders.map(item =>
                     <div key={item.id} className={styles.item}>
                         <div className={styles.image}
-                            style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/${item.img?.includes(",") ? item.img.split(',')[0] : item.img})` }}
+                            style={{ backgroundImage: `url(${process.env.PUBLIC_API_URL}/${item.img?.includes(",") ? item.img.split(',')[0] : item.img})` }}
                             onClick={() => {
                                 router(PRODUCT_ROUTE + '/' + item.id, { replace: false })
 

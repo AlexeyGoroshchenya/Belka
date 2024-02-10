@@ -1,3 +1,4 @@
+import React from 'react';
 import Gallery from "../pages/gallery";
 import Home from "../pages/home";
 import Chat from "../pages/chat";

@@ -33,7 +33,7 @@ const Card = ({ item, slider = false }) => {
         <div className={cardClassName}>
             <div
                 className={styles.image}
-                style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/${images[0]})` }}
+                style={{ backgroundImage: `url(${process.env.PUBLIC_API_URL}/${images[0]})` }}
                 onClick={() => {
 
                     router(PRODUCT_ROUTE + '/' + item.id, { replace: false })
@@ -43,7 +43,7 @@ const Card = ({ item, slider = false }) => {
 
                 <h2 className={styles.title}>{item.name}</h2>
                 <div className={styles.pricebox}>
-                    <img src={`${process.env.PUBLIC_URL}/images/${!isWish?'wish':'wish_done'}.svg`}
+                    <img src={`${process.env.ASSET_PREFIX}/images/${!isWish?'wish':'wish_done'}.svg`}
                      alt=""
                      onClick={()=>{
                         changeBasket(item, setIsWish)

@@ -29,7 +29,7 @@ console.log(inView);
             </div>
 
             <div className={styles.image}>
-                <img src={`${process.env.PUBLIC_URL}/images/wallpapers/brand.webp`} alt="" loading='lazy' />
+                <img src={`${process.env.ASSET_PREFIX}/images/wallpapers/brand.webp`} alt="" loading='lazy' />
             </div>
 
 

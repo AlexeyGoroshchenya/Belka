@@ -1,7 +1,7 @@
 .cover {
     width: 100vw;
     height: 100vh;
-    background-image: url('/public/images/wallpapers/cover.webp');
+    background-image: url('./bg/cover.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,12 +10,12 @@
 
 
 .medium{
-    background-image: url('/public/images/wallpapers/cover-medium.webp');
+    background-image: url('./bg/cover-medium.webp');
 
 }
 
 .small{
-    background-image: url('/public/images/wallpapers/cover-small.webp');
+    background-image: url('./bg/cover-small.webp');
 
 }
 

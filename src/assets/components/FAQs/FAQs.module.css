@@ -2,7 +2,7 @@
     width: 100vw;
       height: auto;
     
-    background-image: url('/public/images/wallpapers/faqs.webp');
+    background-image: url('./bg/faqs.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -22,7 +22,7 @@ const BasketCard = ({item, remove, select, setSelect, selected, createOrder}) =>
     return (
         <div className={styles.item}>
                         <div className={styles.image}
-                            style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL}/${images[0]})` }}
+                            style={{ backgroundImage: `url(${process.env.PUBLIC_API_URL}/${images[0]})` }}
                             onClick={()=>{
                 
                                 router(PRODUCT_ROUTE + '/' + item.id, { replace: false })
