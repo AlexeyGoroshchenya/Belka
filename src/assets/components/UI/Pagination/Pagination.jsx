@@ -3,6 +3,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../../..';
 import styles from './Pagination.module.css'
 
+import titlePattern from "../../../images/titlePattern.svg";
+import titlePatternSecond from "../../../images/titlePattern2.svg";
+
 const Pagination = observer(({rows}) => {
 
     const {devices} = useContext(Context)
@@ -25,6 +28,11 @@ const Pagination = observer(({rows}) => {
 
     return (
         <div className={styles.body}>
+
+                <div className={styles.decor + ' opacity'}>
+                <img src={titlePattern} alt="" />
+                </div>
+
             {pages.map(page=>
 
             <div key={'page ' + page}
@@ -44,6 +52,10 @@ const Pagination = observer(({rows}) => {
             )
 
             }
+
+            <div className={styles.decor + ' opacity'}>
+                <img src={titlePatternSecond} alt="" />
+                </div>
             
         </div>
     );

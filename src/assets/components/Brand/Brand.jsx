@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Brand.module.css'
 import { useInView } from 'react-intersection-observer';
 
+import leftBottom from "../../images/leftBottom.svg";
+
 const Brand = React.memo(() => {
 
     
@@ -18,7 +20,7 @@ console.log(inView);
     return (
         <section ref={ref} id='brand' className={inView? styles.body + ' visibleSection':styles.body + ' hiddenSection'}>
 
-            <div className={styles.desc}>
+            <div className={styles.desc  + ' opacity'}>
                 <div className={styles.title + ' sectionTitle'}>
                     Каждый найдет тут что-то невероятное
                 </div>
@@ -26,13 +28,17 @@ console.log(inView);
                     Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное. Каждый найдет тут что-то невероятное.
                 </div>
 
+
+                <div className={styles.decor + ' opacity'}>
+                <img src={leftBottom} alt="" />
+                </div>
             </div>
 
             <div className={styles.image}>
                 <img src={`${process.env.ASSET_PREFIX}/images/wallpapers/brand.webp`} alt="" loading='lazy' />
             </div>
 
-
+            
 
         </section>
     );

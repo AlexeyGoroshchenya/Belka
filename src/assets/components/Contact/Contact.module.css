@@ -1,6 +1,7 @@
 .contact{
     
-    width: 100vw;
+    width: 100%;
+    overflow: hidden;
     height: 100vh;
     color: var(--main-light-color);
     text-align: center;
@@ -69,7 +70,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
+
+  .content::before,
+  .content::after{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.5;
+}
+
+.content::after{
+    top: 30px;
+    right: 30px;
+    background-image: url('../../images/nuts3.svg');
+}
+
+.content::before{
+    bottom: 30px;
+    left: 30px;
+    background-image: url('../../images/nuts2.svg');
+}
 
   .title{
     font-size: 45px;

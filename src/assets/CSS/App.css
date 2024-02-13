@@ -20,6 +20,10 @@ body {
   background-color: var(--dark-bg-color);
   padding-top: 150px;
   min-height: 100vh;
+  width: 100dvw;
+  
+  display: flex;
+  flex-direction: column;
 }
 
 .App.hidden-header {
@@ -101,19 +105,38 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--main-light-color);
   -webkit-box-shadow: 0 0 0px 1000px var(--dark-bg-color) inset;
   transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  -moz-transition: background-color 5000s ease-in-out 0s;
+  -ms-transition: background-color 5000s ease-in-out 0s;
+  -o-transition: background-color 5000s ease-in-out 0s;
 }
 
+.hiddenSection .opacity{
+  opacity: 0;
+  
+}
+
+.visibleSection .opacity{
+  opacity: inherit;
+transition-duration: 1s;
+}
 
 .hiddenSection .sectionTitle {
-
   transform: translateX(-100vw);
   visibility: hidden;
+  -webkit-transform: translateX(-100vw);
+  -moz-transform: translateX(-100vw);
+  -ms-transform: translateX(-100vw);
+  -o-transform: translateX(-100vw);
 }
 
 .hiddenSection .sectionText {
-
   transform: translateX(100vw);
   visibility: hidden;
+  -webkit-transform: translateX(100vw);
+  -moz-transform: translateX(100vw);
+  -ms-transform: translateX(100vw);
+  -o-transform: translateX(100vw);
 }
 
 .visibleSection .sectionTitle,
@@ -121,4 +144,58 @@ select:-webkit-autofill:focus {
   transition-duration: 1s;
   transform: translateX(0);
   visibility: visible;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
 }
+
+swiper-container::part(bullet-active) {
+  background-color: rgb(255, 255, 255);
+    border: 3px solid white;
+  box-shadow: 3px 3px solid white;
+}
+
+swiper-container::part(bullet) {
+  background-color: rgba(255, 255, 255, 0.152);
+  opacity: 0.7;
+  border: 3px solid white;
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next){
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translateX(-10px);
+  -webkit-transform: translateX(-10px);
+  -moz-transform: translateX(-10px);
+  -ms-transform: translateX(-10px);
+  -o-transform: translateX(-10px);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+
+}
+
+swiper-container::part(button-prev){
+  padding: 10px 15px 10px 10px;
+  transform: translateX(10px);
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  -o-transform: translateX(10px);
+}
+
+swiper-container::part(button-next){
+  padding: 10px 10px 10px 15px;
+  transform: translateX(-10px);
+  -webkit-transform: translateX(-10px);
+  -moz-transform: translateX(-10px);
+  -ms-transform: translateX(-10px);
+  -o-transform: translateX(-10px);
+}
+

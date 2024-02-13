@@ -1,5 +1,6 @@
 .faqs {
-    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
       height: auto;
     
     background-image: url('./bg/faqs.webp');

@@ -38,7 +38,7 @@ const Home = observer(() => {
     onIdle,
     onActive,
     onAction,
-    timeout: 60_000,
+    timeout: 600_000,
     throttle: 500
   })
 

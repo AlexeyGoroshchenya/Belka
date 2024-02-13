@@ -155,6 +155,7 @@ const OrderForm = ({
                 <label htmlFor="note">Примечание: </label>
                 <textarea type="text"
                     id='note'
+                    maxLength="900"
                     value={note}
                     onChange={(e) => {
                         setNote(e.target.value)

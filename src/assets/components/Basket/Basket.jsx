@@ -6,6 +6,9 @@ import { Context } from '../../..';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GALLERY_ROUTE, ORDER_ROUTE } from '../../utils/consts';
 
+import tree from "../../images/tree.svg";
+import leftBottom from "../../images/leftBottom2.svg";
+
 const BasketForm = observer(() => {
     const { order } = useContext(Context)
     const router = useNavigate()
@@ -14,15 +17,11 @@ const BasketForm = observer(() => {
     const [items, setItems] = useState([])
     const [select, setSelect] = useState([])
 
-    
+
 
     const removeFromBasket = () => {
-
-        let changedBasket = [...items]
-
-        select.forEach((el) => {
-            changedBasket = changedBasket.filter(elem => elem.id !== el)
-        })
+        setItems(items.filter(elem => !select.some(el => el === elem.id)))
+        localStorage.setItem('basket', JSON.stringify(items.filter(elem => !select.some(el => el === elem.id))))
     }
 
     const createOrder = () => {
@@ -49,7 +48,7 @@ const BasketForm = observer(() => {
     }, [])
 
     useEffect(() => {
-        if(localStorage.getItem('basket')) setItems(JSON.parse(localStorage.getItem('basket')))        
+        if (localStorage.getItem('basket')) setItems(JSON.parse(localStorage.getItem('basket')))
 
 
     }, [])
@@ -84,6 +83,22 @@ const BasketForm = observer(() => {
                 }
 
             </div>
+
+            <div className={styles.decors}>
+
+                <div className={styles.decorLeft}>
+                    <img src={leftBottom} alt="" />
+                </div>
+
+                <div className={styles.decor}>
+                    <img src={tree} alt="" />
+                </div>
+
+
+            </div>
+
+
+
         </div>
     );
 });

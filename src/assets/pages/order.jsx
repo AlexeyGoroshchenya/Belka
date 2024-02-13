@@ -4,8 +4,9 @@ import OrderForm from '../components/Order/orderForm';
 import { Context } from '../..';
 import { createOrder } from '../http/orderApi';
 import Loader from '../components/UI/Loader/Loader';
+import { observer } from 'mobx-react-lite';
 
-const Order = () => {
+const Order = observer(() => {
 
     const { order, user } = useContext(Context)
     const [loading, setLoading] = useState(false)
@@ -86,6 +87,10 @@ const Order = () => {
         );
     }
 
+    if(order?.lenght){
+        console.log(order?.lenght);
+    }
+
     return (
         <div className='App'>
             <Header />
@@ -101,6 +106,7 @@ const Order = () => {
              setNote={setNote} />
         </div>
     );
-};
+}
+)
 
 export default Order;

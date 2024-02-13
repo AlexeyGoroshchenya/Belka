@@ -23,7 +23,7 @@ const { ref, inView, entry } = useInView({
 
             </div>
             <div className={styles.desc}>
-                <div className={styles.content}>
+                <div className={styles.content  + ' opacity'}>
 
                     <div className={styles.title + ' sectionTitle'}>
                         Свяжитесь со мной

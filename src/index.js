@@ -11,7 +11,6 @@ import OrderStore from './assets/store/OrderStore';
 export const Context = React.createContext(null)
 
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <Context.Provider value={{
